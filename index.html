@@ -92,10 +92,10 @@ window.onload = () => {
                 entity.setAttribute('material', { color: 'red' });
                 
                 // ここで北の方向に位置を設定
-                const newPosition = {
+                entity.setAttribute('gps-new-entity-place', {
                     latitude: e.detail.position.latitude + 0.001,
                     longitude: e.detail.position.longitude
-                };
+                  });
                 document.querySelector("a-scene").appendChild(entity);
                 entity.setAttribute('gps-new-entity-place', newPosition);
             } catch (error) {
