@@ -82,29 +82,11 @@ window.onload = () => {
                 const deviceHeading = await getDeviceHeading();
                 alert(`Device Heading: ${deviceHeading}`);
 
-                // Add a box to the north of the initial GPS position
-                const entity = document.createElement("a-box");
-                entity.setAttribute("scale", {
-                    x: 20,
-                    y: 20,
-                    z: 20
-                });
-                entity.setAttribute('material', { color: 'red' });
-                
-                // ここで北の方向に位置を設定
-                entity.setAttribute('gps-new-entity-place', {
-                    latitude: e.detail.position.latitude + 0.001,
-                    longitude: e.detail.position.longitude
-                  });
-                document.querySelector("a-scene").appendChild(entity);
-                entity.setAttribute('gps-new-entity-place', newPosition);
-            } catch (error) {
-                console.error('Error getting device heading:', error);
-            }
-        }
-        testEntityAdded = true;
-    });
-};
+                // 方向に応じて新しい位置を計算
+                const offsetDistance = 0.001;
+                const offsetLatitude = offsetDistance * Math.cos((deviceHeading + 90) * (Math.PI / 180));
+                const offsetLongitude = offsetDistance * Math.sin((deviceHeading + 
+
   </script>
   </body>
 </html>
