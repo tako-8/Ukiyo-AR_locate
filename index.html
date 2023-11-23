@@ -49,7 +49,7 @@
             entity.setAttribute('gps-new-entity-place', {
                 latitude: e.detail.position.latitude,
                 longitude: e.detail.position.longitude,
-                rotation: "0 0 0" // エンティティを北向きに設定
+                position: "0 0 0" // エンティティを北向きに設定
             });
             document.querySelector("a-scene").appendChild(entity);
         }
