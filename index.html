@@ -44,10 +44,10 @@
             
             // Add a box with GPS data
             const entity = document.createElement("a-box");
-            entity.setAttribute("scale", { x: 10, y: 10, z: 10 });
+            entity.setAttribute("scale", { x: 1, y: 1, z: 1 });
             entity.setAttribute('material', { color: 'red' });
             entity.setAttribute('gps-new-entity-place', {
-                latitude: e.detail.position.latitude,
+                latitude: e.detail.position.latitude + 0.001,
                 longitude: e.detail.position.longitude,
             });
             entity.setAttribute('position', { x: 0, y: 10, z: 0 });
